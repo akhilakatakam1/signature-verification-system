@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Signup</title>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Manager Signup</h1>
+        <form id="manager-signup-form">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your Full Name" required>
+
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Enter your Last Name" required>
+
+            <label for="managerid">Manager ID</label>
+            <input type="email" id="managerid" name="managerid" placeholder="Enter your Manager ID" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+
+            <button type="submit">Signup</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("manager-signup-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const firstName = document.getElementById("fullname").value;
+            const lastName = document.getElementById("lastname").value;
+            const managerid = document.getElementById("managerid").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                const response = await fetch("/api/manager-signup", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ firstName, lastName, managerid, password }),
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert("Signup successful! Redirecting to login...");
+                    window.location.href = "/api/manager-login";
+                } else {
+                    alert(result.message || "Signup failed. Please try again.");
+                }
+            } catch (error) {
+                console.error("Error during signup:", error);
+                alert("An error occurred. Please try again later.");
+            }
+        });
+    </script>
+</body>
+</html>

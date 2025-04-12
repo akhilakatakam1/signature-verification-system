@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Login - G124 Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", serif;
+       
+    }
+ 
+    body{
+        background: #eaf6ff;
+    }
+    
+    
+    .container{
+        background-color: #fff;
+        width: 450px;
+        padding: 1.5rem;
+        margin: 50px auto;
+        border-radius: 10px;
+        box-shadow: 0 20px 35px rgba(0,0,1,0.9);
+        /* position: relative;
+        left: 400px; */
+    }
+    
+    form{
+        margin: 0 2rem;
+    }
+    
+    .form-title{
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 1.3rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    input{
+        color: inherit;
+        width: 100%;
+        background-color:transparent;
+        border: none;
+        border-bottom: 1px solid #757575;
+        padding-left: 1.5rem;
+        font-size: 15px;
+    }
+    
+    .input-group{
+        padding: 1% 0;
+        position: relative;
+    }
+    
+    .input-group i{
+        position: absolute;
+        color: black;
+        margin-top: 5px;
+    }
+    
+    input:focus{
+        background-color:transparent;
+        outline: transparent;
+        border-bottom: 2px solid hsl(327,90%,28%);
+    }
+    
+    input::placeholder{
+        color: transparent;
+    }
+    
+    label{
+        color: #757575;
+        position: relative;
+        left: 1.2em;
+        top: -1.5em;
+        cursor:auto;
+        transition: 0.3s ease all;
+    }
+    
+    input:focus~label,input:not(:placeholder-shown)~label{
+       top: -3em;
+       color: hsl(327,90%,28%);
+       font-size: 15px;
+    }
+    
+    .recover {
+        text-align:right;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .recover a{
+        text-decoration: none;
+        color: rgb(125,125,235);
+    }
+    
+    .recover a:hover{
+        color: blue;
+        text-decoration: underline;
+    }
+    
+    .btn{
+        font-size: 1.1rem;
+        padding: 8px 0;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        width: 100%;
+        background-color:rgb(125,125,235);
+        color: #fff;
+        cursor: pointer;
+        transition: 0.9s;
+    }
+    
+    .btn:hover{
+        background-color:#07001f;
+    }
+    
+    .or{
+        text-align: center;
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .icons{
+        text-align: center;
+    }
+    
+    
+    .icons i{
+        color: rgb(125,125,235);
+        padding: 0.8rem 1.5rem;
+        border-radius: 10px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        border: 2px solid #dfe9f5;
+        margin: 0 15px;
+        transition: 1s;
+    }
+    
+    .icons i:hover{
+        background-color:#07001f;
+        font-size: 1.6rem;
+        border: 2px solid rgb(125,125,235);
+    }
+    
+    .links{
+        display: flex;
+        justify-content: space-around;
+        padding: 0 4rem;
+        margin-top: 0.9rem;
+        font-weight: bold;
+    }
+    
+    button{
+        color: rgb(125,125,235);
+        border: none;
+        background-color:transparent;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    button:hover{
+        text-decoration: underline;
+        color: blue;
+    }
+    </style>
+</head>
+<body>
+    <!-- <div class="login-container">
+        <h1>Manager Login</h1>
+        <form action="/api/manager-login" method="POST">
+            <label for="managerid">Manager ID</label>
+            <input type="text" id="managerid" name="managerid" placeholder="Enter your Manager ID" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+
+            <button type="submit">Login</button>
+        </form> -->
+
+<div class="container" id="signIn" style="position: relative; top:100px;">    
+        <h1 class="form-title">Login</h1>
+          
+        <form method="POST" action="/api/manager-login" id="login">
+
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="text" name="managerid" id="managerid" placeholder="Enter ID" required />
+              <label for="email">Employee ID</label>
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" name="password" id="password" placeholder="Password" required />
+              <label for="password">Password</label>
+            </div> 
+            <!-- <div class="recover">
+              <button id="forgotPasswordLink">Forgot Password</button>
+            </div> -->
+            <input type="submit" class="btn" value="Sign In" name="signIn">
+          </form>
+        </div>
+</body>
+</html>
